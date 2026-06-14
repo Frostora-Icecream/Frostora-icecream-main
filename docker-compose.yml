@@ -12,6 +12,7 @@ services:
       - SECRET_KEY=django-insecure-frostora-dev-key
       - ALLOWED_HOSTS=localhost,127.0.0.1
       - CORS_ALLOWED_ORIGINS=http://localhost:5173
+      - DATABASE_URL=${DATABASE_URL}
     volumes:
       - ./backend:/app
     command: python manage.py runserver 0.0.0.0:8000
