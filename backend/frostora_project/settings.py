@@ -3,6 +3,7 @@ Django settings for frostora_project project.
 """
 import os
 from pathlib import Path
+import dj_database_url
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -56,12 +57,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'frostora_project.wsgi.application'
 
+DATABASE_URL = os.environ.get("DATABASE_URL")
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    "default": dj_database_url.config(
+        default=DATABASE_URL or f"sqlite:///{BASE_DIR / 'db.sqlite3'}"
+    )
 }
+
+if DATABASE_URL and DATABASE_URL.startswith(("postgres://", "postgresql://")):
+    DATABASES["default"].setdefault("OPTIONS", {})
+    DATABASES["default"]["OPTIONS"].setdefault("sslmode", "require")
 
 AUTH_PASSWORD_VALIDATORS = [
     {
