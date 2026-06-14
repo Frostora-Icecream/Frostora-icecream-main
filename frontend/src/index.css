@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: #0d2a52;
+  background: #f7f3ee;
+  font-synthesis: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  font-family: 'Montserrat', sans-serif;
+  background:
+    radial-gradient(circle at 85% 10%, rgba(168, 216, 255, 0.22), transparent 25rem),
+    #f7f3ee;
+  color: #0d2a52;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+button,
+a,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+::selection {
+  color: #fff;
+  background: #0d2a52;
+}
+
+@layer components {
+  .btn-gold {
+    @apply inline-flex items-center justify-center rounded-sm bg-gold px-6 py-3 text-xs font-bold uppercase tracking-[0.16em] text-navy transition duration-300 hover:-translate-y-0.5 hover:bg-[#d7b873] hover:shadow-lg;
+  }
+
+  .btn-navy {
+    @apply inline-flex items-center justify-center rounded-sm bg-navy px-6 py-3 text-xs font-bold uppercase tracking-[0.16em] text-white transition duration-300 hover:-translate-y-0.5 hover:bg-[#153c6f];
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center rounded-sm border border-navy px-6 py-3 text-xs font-bold uppercase tracking-[0.16em] text-navy transition duration-300 hover:-translate-y-0.5 hover:bg-navy hover:text-white;
+  }
+
+  .section-title {
+    @apply text-center font-serif text-4xl font-semibold leading-tight text-navy md:text-5xl;
+  }
+
+  .feature-card {
+    @apply rounded-sm border border-[#e5dac9] bg-white/80 p-7 text-center shadow-[0_18px_45px_rgba(13,42,82,0.07)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(13,42,82,0.12)];
+  }
+
+  .eyebrow {
+    @apply mb-4 text-[0.68rem] font-bold uppercase tracking-[0.28em] text-gold;
+  }
+
+  .frostora-panel {
+    @apply rounded-sm border border-white/60 bg-white/75 shadow-[0_24px_70px_rgba(13,42,82,0.1)] backdrop-blur-sm;
+  }
+
+  .brush-wash {
+    background:
+      linear-gradient(95deg, transparent 2%, rgba(168, 216, 255, 0.45) 12%, rgba(168, 216, 255, 0.2) 70%, transparent 98%);
+    clip-path: polygon(2% 13%, 98% 0, 94% 88%, 5% 100%);
+  }
+
+  .form-control {
+    @apply w-full rounded-sm border border-[#ddd1c0] bg-white px-4 py-3 text-sm text-navy outline-none transition placeholder:text-slate-400 focus:border-gold focus:ring-2 focus:ring-gold/20;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(-1deg); }
+  50% { transform: translateY(-12px) rotate(1deg); }
+}
+
+.hero-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
