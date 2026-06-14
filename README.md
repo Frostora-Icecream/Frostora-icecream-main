@@ -6,7 +6,7 @@ A premium ice cream brand website with a modern full-stack architecture. Built w
 
 - **Backend**: Django 4.2 + Django REST Framework
 - **Frontend**: React 18 + Vite + Tailwind CSS
-- **Database**: SQLite (development)
+- **Database**: SQLite (development fallback), Neon PostgreSQL ready
 - **API**: RESTful API with complete CRUD operations
 - **Styling**: Tailwind CSS with custom Frostora theme
 
@@ -88,6 +88,15 @@ python manage.py runserver
 
 Backend: `http://localhost:8000`  
 Admin: `http://localhost:8000/admin`
+
+### PostgreSQL / Neon Setup
+Set `DATABASE_URL` to your Neon connection string before running the backend:
+```bash
+export DATABASE_URL="postgresql://USER:PASSWORD@HOST/DBNAME?sslmode=require"
+python manage.py migrate
+python manage.py runserver
+```
+If `DATABASE_URL` is not set, Django falls back to the local SQLite database for development.
 
 ### Frontend Setup
 ```bash
