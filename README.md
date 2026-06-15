@@ -78,6 +78,7 @@ Frostora-icecream-main/
 ### Backend Setup
 ```bash
 cd backend
+cp .env.example .env
 python -m venv venv
 source venv/bin/activate  # Windows: venv\Scripts\activate
 pip install -r requirements.txt
@@ -90,9 +91,10 @@ Backend: `http://localhost:8000`
 Admin: `http://localhost:8000/admin`
 
 ### PostgreSQL / Neon Setup
-Set `DATABASE_URL` to your Neon connection string before running the backend:
+Set `DATABASE_URL` in `backend/.env` to your Neon connection string before running the backend:
 ```bash
-export DATABASE_URL="postgresql://USER:PASSWORD@HOST/DBNAME?sslmode=require"
+cp .env.example .env
+# edit .env and replace DATABASE_URL with your Neon connection string
 python manage.py migrate
 python manage.py runserver
 ```

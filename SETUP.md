@@ -84,6 +84,7 @@ Frostora-icecream-main/
 1. **Create Python Virtual Environment**
 ```bash
 cd backend
+cp .env.example .env
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
@@ -184,7 +185,7 @@ Place image assets in `frontend/src/assets/`:
 This is a development setup. For production:
 1. Change `DEBUG = False` in settings.py
 2. Set appropriate `ALLOWED_HOSTS`
-3. Use environment variables for sensitive data
+3. Use `backend/.env` for sensitive data and keep `backend/.env.example` committed as a placeholder template
 4. Configure proper database (PostgreSQL recommended)
 5. Set up HTTPS
 6. Use proper authentication mechanisms

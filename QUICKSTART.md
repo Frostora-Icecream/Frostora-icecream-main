@@ -12,6 +12,9 @@
 # Navigate to backend
 cd backend
 
+# Create local env file from the template
+cp .env.example .env
+
 # Create virtual environment
 python -m venv venv
 source venv/bin/activate  # Windows: venv\Scripts\activate
@@ -46,6 +49,9 @@ Frontend: http://localhost:5173
 
 ## 📌 Default Credentials
 After running `createsuperuser`, you can log in to the admin panel.
+
+## 🔐 Environment Variables
+Keep secrets in `backend/.env` and leave `backend/.env.example` as the committed template.
 
 ## 🎨 Customization
 
